@@ -1,0 +1,38 @@
+<?page title="Employee Edit" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Employee Edit" border="normal" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('vmd.KaryawanEditVmd')">
+	<hlayout>
+		<button label="back" onClick="@command('back')"/>
+		<button label="save" onClick="@command('save')"/>
+	</hlayout>
+	<space/>
+	
+	<grid>
+		<columns>
+			<column label="" width="250px"/>
+			<column label="" width="300px"/>
+		</columns>
+		<rows>
+			<row>	
+				<label value = "Kode Karyawan"/>
+				<textbox constraint="no empty : harus diisi" value = "@bind(vm.mstKaryawan.kodeKaryawan)" readonly="@load(vm.mstKaryawan.kodeKaryawan eq null ? false:true)"/>
+				
+			</row>
+			<row>
+				<label value = "Nama Karyawan"/>
+				<textbox constraint="no empty : harus diisi" value="@bind(vm.mstKaryawan.namaKaryawan)"/>
+			</row>
+			<row>
+				<label value = "username"/>
+				<textbox constraint="no empty : harus diisi" value="@bind(vm.mstKaryawan.username)" />
+			</row>
+			<row>
+				<label value = "password"/>
+				<textbox constraint="no empty : harus diisi" value="@bind(vm.mstKaryawan.password)" type="password"/>
+			</row>
+		</rows>
+	</grid>
+	
+</window>
+</zk>

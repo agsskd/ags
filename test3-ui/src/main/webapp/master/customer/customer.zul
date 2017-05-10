@@ -1,0 +1,39 @@
+<?page title="List Customer" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="List Customer" border="normal" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('vmd.CustomerVmd')">
+
+<hlayout>
+	<button label="add" onClick="@command('add')"/>
+	<button label="edit" onClick="@command('edit')"/>
+	<button label="delete" onClick="@command('delete')"/>
+</hlayout>
+	<div style="text-align:right">
+	<label value="Filter By Name"/>
+	<textbox value="@bind(vm.search)" onOK="@command('search')"/>
+	<button id="searchButton" label="Search"/>
+</div>
+<space/>
+<listbox model="@bind(vm.listCustomer)" selectedItem="@bind(vm.mstCustomer)">
+	<listhead>
+		<listheader label="Kode Customer" sort="auto" />
+		<listheader label="Nama Customer" sort="auto" />
+		<listheader label="Alamat Customer" sort="auto" />
+		<listheader label="Jenis Kelamin" sort="auto" />
+		<listheader label="Email Customer" sort="auto" />
+		<listheader label="Kota" sort="auto" />
+	</listhead>
+	<template name="model">
+		<listitem>
+			<listcell label="@load(each.kodeCustomer)"/>
+			<listcell label="@load(each.namaCustomer)"/>
+			<listcell label="@load(each.alamatCustomer)"/>
+			<listcell label="@load(each.jenisKelamin)"/>
+			<listcell label="@load(each.emailCustomer)"/>
+			<listcell label="@load(each.namaKota)"/>
+		</listitem>
+	</template>
+</listbox>
+
+</window>
+</zk>
